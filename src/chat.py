@@ -7,8 +7,9 @@ class WSChat:
         self.port = port
         self.conns = {}
 
-    async def main_page(self, request):
-        return web.FileResponse('./index.html')
+    @staticmethod
+    async def main_page():
+        return web.FileResponse('templates/index.html')
 
     async def chat(self, request):
         web_socket = web.WebSocketResponse(autoclose=False)
